@@ -2,5 +2,14 @@
     "next": "Далее",
     "sputnikStartupSupportFund": "Фонд поддержки стартапов «Спутник»",
     "entrepreneurshipHelp": "Мы помогаем сфокусироваться на главном — предпринимательстве",
-    "madeByNerds": "Сделано ботаниками для ботаников"
+    "madeByNerds": "Сделано ботаниками для ботаников",
+    "githubSocial": "GitHub social",
+    "enterNicknameOnGithub": "Введите никнейм на github",
+    "nickname": "Никнейм",
+    "enterNickname": "Введите никнейм",
+    "search": "Найти",
+    "bySigningIn": "Входя в систему, я соглашаюсь с ",
+    "termOfUse": "Условиями использования",
+    "and": "и",
+    "privacyPolicy": "Политикой конфиденциальности"
 }

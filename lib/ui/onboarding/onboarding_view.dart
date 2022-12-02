@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sputnik_test_flutter/resources/resources.dart';
+import 'package:sputnik_test_flutter/ui/routes/router.dart';
 import 'package:sputnik_test_flutter/ui/widgets/app_button.dart';
 
 class OnboardingView extends StatefulWidget {
@@ -23,7 +24,7 @@ class OnboardingViewState extends State<OnboardingView> with TickerProviderState
       _pageController.animateToPage(_currentPage, duration: const Duration(milliseconds: 300), curve: Curves.ease);
       _tabController.animateTo(_currentPage);
     } else {
-      // TODO add reroute
+      Navigator.of(context).pushNamedAndRemoveUntil(RouteNames.signIn, (route) => false);
       return;
     }
   }
@@ -80,7 +81,6 @@ class OnboardingViewState extends State<OnboardingView> with TickerProviderState
                   child: Text(
                     AppLocalizations.of(context)!.next,
                     style: const TextStyle(
-                      fontFamily: 'Poppins',
                       fontWeight: FontWeight.w700,
                       fontSize: 17,
                     ),
@@ -112,10 +112,9 @@ class _OnboardingPageViewItem extends StatelessWidget {
         Text(
           description,
           style: const TextStyle(
-            fontFamily: 'Poppins',
             fontWeight: FontWeight.w700,
             fontSize: 22,
-            color: AppColors.onboardingText,
+            color: AppColors.mainText,
           ),
           textAlign: TextAlign.center,
         ),
