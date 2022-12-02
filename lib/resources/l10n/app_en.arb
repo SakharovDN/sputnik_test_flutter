@@ -2,5 +2,14 @@
     "next": "Next",
     "sputnikStartupSupportFund": "Sputnik Startup Support Fund",
     "entrepreneurshipHelp": "We help you focus on the main thing — entrepreneurship",
-    "madeByNerds": "Made by nerds for nerds"
+    "madeByNerds": "Made by nerds for nerds",
+    "githubSocial": "GitHub social",
+    "enterNicknameOnGithub": "Enter nickname on github",
+    "nickname": "Nickname",
+    "enterNickname": "Enter nickname",
+    "search": "Search",
+    "bySigningIn": "By signing in, I agree ",
+    "termOfUse": "Term of Use",
+    "and": "and",
+    "privacyPolicy": "Privacy Policy"
 }
