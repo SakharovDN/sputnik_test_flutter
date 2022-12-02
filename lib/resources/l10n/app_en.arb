@@ -11,5 +11,8 @@
     "bySigningIn": "By signing in, I agree ",
     "termOfUse": "Term of Use",
     "and": "and",
-    "privacyPolicy": "Privacy Policy"
+    "privacyPolicy": "Privacy Policy",
+    "oops": "Oops... something went wrong. Try again later!",
+    "userNotFound": "User with this nickname not found!",
+    "connectionLostHint": "Check your mobile or Wi-Fi connection"
 }
