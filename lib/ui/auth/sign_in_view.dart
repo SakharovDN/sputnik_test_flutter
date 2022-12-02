@@ -1,14 +1,28 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 import 'package:sputnik_test_flutter/resources/resources.dart';
+import 'package:sputnik_test_flutter/ui/auth/sign_in_view_model.dart';
+import 'package:sputnik_test_flutter/ui/routes/router.dart';
 import 'package:sputnik_test_flutter/ui/widgets/app_button.dart';
 
 class SignInView extends StatelessWidget {
   const SignInView({Key? key}) : super(key: key);
 
+  void signIn(SignInViewModel viewModel, BuildContext context) {
+    viewModel.onSearchPressed().then((success) {
+      if (success) {
+        Navigator.of(context).pushNamed(RouteNames.onboarding);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    final viewModel = context.read<SignInViewModel>();
+    final canStartSigningIn = context.select((SignInViewModel value) => value.canStartSigningIn);
+    final signingInInProgress = context.select((SignInViewModel value) => value.signingInInProgress);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
@@ -43,25 +57,23 @@ class SignInView extends StatelessWidget {
                 _InternalTextWidget(
                   labelText: AppLocalizations.of(context)!.nickname,
                   hintText: AppLocalizations.of(context)!.enterNickname,
-                  onChanged: (value) {},
+                  onChanged: viewModel.onNicknameChanged,
                 ),
-                const Expanded(
-                  child: _ErrorWidget(
-                    message: 'User with this nickname not found!',
-                  ),
-                ),
+                const Expanded(child: _ErrorWidget()),
                 AppButton(
                     gradient: const LinearGradient(
                       colors: [AppColors.enabledButtonLeft, AppColors.enabledButtonRight],
                     ),
-                    child: Text(
-                      AppLocalizations.of(context)!.search,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 17,
-                      ),
-                    ),
-                    onPressed: () {}),
+                    onPressed: canStartSigningIn ? () => signIn(viewModel, context) : null,
+                    child: signingInInProgress
+                        ? const CircularProgressIndicator(color: Colors.white)
+                        : Text(
+                            AppLocalizations.of(context)!.search,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.w700,
+                              fontSize: 17,
+                            ),
+                          )),
                 const SizedBox(height: 25),
                 RichText(
                   maxLines: 3,
@@ -101,11 +113,12 @@ class SignInView extends StatelessWidget {
 }
 
 class _ErrorWidget extends StatelessWidget {
-  final String message;
-  const _ErrorWidget({Key? key, required this.message}) : super(key: key);
+  const _ErrorWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final errorMessage = context.select((SignInViewModel value) => value.errorMessage);
+    if (errorMessage == null) return const SizedBox();
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -120,7 +133,7 @@ class _ErrorWidget extends StatelessWidget {
         ),
         const SizedBox(height: 17),
         Text(
-          message,
+          errorMessage,
           textAlign: TextAlign.center,
           style: const TextStyle(
             fontWeight: FontWeight.w500,
