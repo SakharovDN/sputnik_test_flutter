@@ -13,7 +13,7 @@ class SignInView extends StatelessWidget {
   void signIn(SignInViewModel viewModel, BuildContext context) {
     viewModel.onSearchPressed().then((success) {
       if (success) {
-        Navigator.of(context).pushNamed(RouteNames.onboarding);
+        Navigator.of(context).pushNamed(RouteNames.main);
       }
     });
   }

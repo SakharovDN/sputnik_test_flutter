@@ -6,6 +6,7 @@ class AppButton extends StatelessWidget {
   final double? height;
   final Color? backgroundColor;
   final Gradient? gradient;
+  final bool expandByWidth;
 
   bool get enabled => onPressed != null;
 
@@ -16,6 +17,7 @@ class AppButton extends StatelessWidget {
     this.height,
     this.backgroundColor,
     this.gradient,
+    this.expandByWidth = true,
   }) : super(key: key);
 
   @override
@@ -28,13 +30,14 @@ class AppButton extends StatelessWidget {
         color: enabled ? backgroundColor ?? theme.primaryColor : Colors.grey,
         borderRadius: BorderRadius.circular(14),
       ),
+      height: expandByWidth ? null : (height ?? 58),
       child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.transparent,
             shadowColor: Colors.transparent,
             disabledBackgroundColor: Colors.transparent,
             disabledForegroundColor: Colors.white,
-            minimumSize: Size.fromHeight(height ?? 58),
+            minimumSize: expandByWidth ? Size.fromHeight(height ?? 58) : null,
           ),
           onPressed: onPressed,
           child: child),
