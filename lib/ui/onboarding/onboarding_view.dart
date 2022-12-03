@@ -55,11 +55,11 @@ class OnboardingViewState extends State<OnboardingView> with TickerProviderState
       body: SafeArea(
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 25),
+            padding: const EdgeInsets.symmetric(vertical: 25),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Align(alignment: Alignment.centerLeft, child: SvgPicture.asset(SvgAssets.sputnikLogo)),
+                const _LogoWidget(),
                 Expanded(
                   child: PageView(
                     physics: const NeverScrollableScrollPhysics(),
@@ -75,14 +75,17 @@ class OnboardingViewState extends State<OnboardingView> with TickerProviderState
                   indicatorSize: 30,
                 ),
                 const SizedBox(height: 22),
-                AppButton(
-                  onPressed: _animateToNextPage,
-                  gradient: const LinearGradient(colors: [AppColors.enabledButtonLeft, AppColors.enabledButtonRight]),
-                  child: Text(
-                    AppLocalizations.of(context)!.next,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 17,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 22),
+                  child: AppButton(
+                    onPressed: _animateToNextPage,
+                    gradient: const LinearGradient(colors: [AppColors.enabledButtonLeft, AppColors.enabledButtonRight]),
+                    child: Text(
+                      AppLocalizations.of(context)!.next,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 17,
+                      ),
                     ),
                   ),
                 ),
@@ -91,6 +94,20 @@ class OnboardingViewState extends State<OnboardingView> with TickerProviderState
           ),
         ),
       ),
+    );
+  }
+}
+
+class _LogoWidget extends StatelessWidget {
+  const _LogoWidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 22),
+      child: Align(alignment: Alignment.centerLeft, child: SvgPicture.asset(SvgAssets.sputnikLogo)),
     );
   }
 }

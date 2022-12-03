@@ -5,9 +5,10 @@ import 'package:sputnik_test_flutter/domain/entity/user.dart';
 
 abstract class _Keys {
   static const user = 'user';
+  static const firstLaunch = 'firstLaunch';
 }
 
-class UserDataProvider {
+class DataProvider {
   static const _secureStorage = FlutterSecureStorage();
 
   Future<User?> getUser() async {
@@ -23,4 +24,18 @@ class UserDataProvider {
   Future<void> removeUser() {
     return _secureStorage.delete(key: _Keys.user);
   }
+
+  Future<bool?> getFirstLaunch() async {
+    String? isFisrtLaunch = await _secureStorage.read(key: _Keys.firstLaunch);
+    if (isFisrtLaunch != null) {
+      return isFisrtLaunch.toLowerCase() == 'true';
+    }
+    return null;
+  }
+
+  Future<void> setFirstLaunch(bool firstLaunch) {
+    return _secureStorage.write(key: _Keys.firstLaunch, value: firstLaunch.toString());
+  }
+
+  
 }

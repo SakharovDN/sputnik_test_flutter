@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'Poppins'),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      initialRoute: _router.initialRoute(),
+      initialRoute: '/',
       onGenerateRoute: _router.onGenerateRoute,
     );
   }

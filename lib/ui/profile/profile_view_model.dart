@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:sputnik_test_flutter/domain/data_providers/user_data_provider.dart';
+import 'package:sputnik_test_flutter/domain/data_providers/data_provider.dart';
 import 'package:sputnik_test_flutter/domain/entity/user.dart';
 
 class ProfileViewModel extends ChangeNotifier {
-  final _userDataProvider = UserDataProvider();
+  final _dataProvider = DataProvider();
 
   User? _user;
 
@@ -14,7 +14,7 @@ class ProfileViewModel extends ChangeNotifier {
   }
 
   void _initAsync() async {
-    _user = await _userDataProvider.getUser();
+    _user = await _dataProvider.getUser();
 
     notifyListeners();
   }
