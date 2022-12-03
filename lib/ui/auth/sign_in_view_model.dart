@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:sputnik_test_flutter/domain/data_providers/user_data_provider.dart';
 import 'package:sputnik_test_flutter/domain/exceptions/api_exception.dart';
-import 'package:sputnik_test_flutter/domain/services/auth_service.dart';
+import 'package:sputnik_test_flutter/domain/services/user_service.dart';
 
 class SignInViewModel extends ChangeNotifier {
   final BuildContext context;
-  final _authService = AuthService();
+  final _authService = UserService();
   final _userDataProvider = UserDataProvider();
 
   String? _nickname;
@@ -29,7 +29,7 @@ class SignInViewModel extends ChangeNotifier {
     _signingInInProgress = true;
     notifyListeners();
     try {
-      final user = await _authService.signIn(_nickname!);
+      final user = await _authService.search(_nickname!);
       _userDataProvider.setUser(user);
       success = true;
     } on ApiException catch (ex) {

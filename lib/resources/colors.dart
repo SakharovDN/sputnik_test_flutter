@@ -9,6 +9,7 @@ class AppColors {
   static const Color text2 = Color(0xFF7A7A7A);
   static const Color text3 = Color(0xFFAEAEB2);
   static const Color text4 = Color(0xFFB0B0B0);
+  static const Color text5 = Color(0xFFA1A1A1);
   static const Color disabledPageIndicator = Color(0xFF404040);
   static const Color textfieldBackground = Color(0xFFF0F0F0);
   static const Color error = Color(0xFFCF4655);
