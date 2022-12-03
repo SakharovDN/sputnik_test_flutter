@@ -14,5 +14,16 @@
     "privacyPolicy": "Privacy Policy",
     "oops": "Oops... something went wrong. Try again later!",
     "userNotFound": "User with this nickname not found!",
-    "connectionLostHint": "Check your mobile or Wi-Fi connection"
+    "connectionLostHint": "Check your mobile or Wi-Fi connection",
+    "followingYou": "Following you",
+    "repositories": "Repositories",
+    "viewAll": "View all",
+    "home": "Home",
+    "followers": "Followers",
+    "chat": "Chat",
+    "profile": "Profile",
+    "myFollowing": "My following",
+    "myFollowers": "My followers",
+    "myBadges": "My badges",
+    "myOrganizations": "My organizations"
 }

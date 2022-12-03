@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:sputnik_test_flutter/resources/resources.dart';
 
@@ -105,9 +106,9 @@ class _HeaderWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            'Followers',
-            style: TextStyle(
+          Text(
+            AppLocalizations.of(context)!.followers,
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 34,
               color: AppColors.mainText,

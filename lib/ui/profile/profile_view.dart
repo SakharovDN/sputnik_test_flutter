@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:sputnik_test_flutter/resources/resources.dart';
 import 'package:sputnik_test_flutter/ui/profile/profile_view_model.dart';
@@ -20,13 +21,13 @@ class ProfileView extends StatelessWidget {
           const Expanded(child: _ProfileBodyWidget()),
           AppButton(
             backgroundColor: AppColors.mainText,
-            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: const [
+            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
               Text(
-                'View all',
-                style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                AppLocalizations.of(context)!.viewAll,
+                style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
               ),
-              SizedBox(width: 10),
-              Icon(
+              const SizedBox(width: 10),
+              const Icon(
                 Icons.arrow_forward_rounded,
                 size: 17,
               )
@@ -47,25 +48,25 @@ class _ProfileBodyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: const [
+      children: [
         _ProfileBodyButton(
           image: Images.lover,
-          name: 'My following',
+          name: AppLocalizations.of(context)!.myFollowing,
         ),
-        SizedBox(height: 18),
+        const SizedBox(height: 18),
         _ProfileBodyButton(
           image: Images.lover,
-          name: 'My followers',
+          name: AppLocalizations.of(context)!.myFollowers,
         ),
-        SizedBox(height: 18),
+        const SizedBox(height: 18),
         _ProfileBodyButton(
           image: Images.medal,
-          name: 'My badges',
+          name: AppLocalizations.of(context)!.myBadges,
         ),
-        SizedBox(height: 18),
+        const SizedBox(height: 18),
         _ProfileBodyButton(
           image: Images.dollar,
-          name: 'My organizations',
+          name: AppLocalizations.of(context)!.myOrganizations,
         ),
       ],
     );

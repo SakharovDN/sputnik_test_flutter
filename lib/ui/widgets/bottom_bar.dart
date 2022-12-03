@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:sputnik_test_flutter/resources/resources.dart';
 
 class AppBottomBar extends StatefulWidget {
@@ -36,11 +37,23 @@ class _AppBottomBarState extends State<AppBottomBar> {
       unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
       type: BottomNavigationBarType.fixed,
       elevation: 0,
-      items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.groups_rounded), label: 'Followers'),
-        BottomNavigationBarItem(icon: Icon(Icons.telegram), label: 'Chat'),
-        BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+      items: [
+        BottomNavigationBarItem(
+          icon: const Icon(Icons.home_filled),
+          label: AppLocalizations.of(context)!.home,
+        ),
+        BottomNavigationBarItem(
+          icon: const Icon(Icons.groups_rounded),
+          label: AppLocalizations.of(context)!.followers,
+        ),
+        BottomNavigationBarItem(
+          icon: const Icon(Icons.telegram),
+          label: AppLocalizations.of(context)!.chat,
+        ),
+        BottomNavigationBarItem(
+          icon: const Icon(Icons.person),
+          label: AppLocalizations.of(context)!.profile,
+        ),
       ],
       onTap: _onItemTap,
     );

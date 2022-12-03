@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:sputnik_test_flutter/domain/entity/following.dart';
 import 'package:sputnik_test_flutter/resources/resources.dart';
@@ -90,18 +91,18 @@ class _TitleWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: const [
+        children: [
           Text(
-            'Following you',
-            style: TextStyle(
+            AppLocalizations.of(context)!.followingYou,
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 34,
               color: AppColors.mainText,
             ),
           ),
           Text(
-            'View all',
-            style: TextStyle(
+            AppLocalizations.of(context)!.viewAll,
+            style: const TextStyle(
               fontWeight: FontWeight.w400,
               decoration: TextDecoration.underline,
               fontSize: 15,
