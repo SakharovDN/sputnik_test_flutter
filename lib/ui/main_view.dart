@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sputnik_test_flutter/ui/chat/chat_view.dart';
+import 'package:sputnik_test_flutter/ui/followers/follower_list_view.dart';
 import 'package:sputnik_test_flutter/ui/home/home_view.dart';
 import 'package:sputnik_test_flutter/ui/home/home_view_model.dart';
 import 'package:sputnik_test_flutter/ui/widgets/bottom_bar.dart';
@@ -17,8 +19,13 @@ class MainView extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: PageView(
+          physics: const NeverScrollableScrollPhysics(),
           controller: _pageController,
-          children: [ChangeNotifierProvider(create: (_) => HomeViewModel(), child: const HomeView())],
+          children: [
+            ChangeNotifierProvider(create: (_) => HomeViewModel(), child: const HomeView()),
+            FollowerListView(),
+            const ChatView()
+          ],
         ),
       ),
       bottomNavigationBar: AppBottomBar(
