@@ -4,6 +4,8 @@ import 'package:sputnik_test_flutter/ui/chat/chat_view.dart';
 import 'package:sputnik_test_flutter/ui/followers/follower_list_view.dart';
 import 'package:sputnik_test_flutter/ui/home/home_view.dart';
 import 'package:sputnik_test_flutter/ui/home/home_view_model.dart';
+import 'package:sputnik_test_flutter/ui/profile/profile_view.dart';
+import 'package:sputnik_test_flutter/ui/profile/profile_view_model.dart';
 import 'package:sputnik_test_flutter/ui/widgets/bottom_bar.dart';
 
 class MainView extends StatelessWidget {
@@ -24,7 +26,8 @@ class MainView extends StatelessWidget {
           children: [
             ChangeNotifierProvider(create: (_) => HomeViewModel(), child: const HomeView()),
             FollowerListView(),
-            const ChatView()
+            const ChatView(),
+            ChangeNotifierProvider(create: (_) => ProfileViewModel(), child: const ProfileView()),
           ],
         ),
       ),
